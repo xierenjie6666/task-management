@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: task-management
+  datasource:
+    url: jdbc:mysql://localhost:3306/task_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: "123456"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: null
+  mapper-locations: classpath*:mapper/*.xml
+
+# JWT 自定义配置
+app:
+  jwt:
+    secret: TaskMgmtSecretKeyForJwtSigning2026CompanyInternalUseOnly!!
+    expire-hours: 24
+  # 资讯模块默认抓取数量
+  news:
+    default-size: 15
+    # 是否启用资讯抓取（关闭后返回空列表，避免无网络时报错）
+    enabled: true
+
+logging:
+  level:
+    com.company.task: info

@@ -1,0 +1,22 @@
+# ===== 后端 =====
+task-management-backend/target/
+task-management-backend/.idea/
+*.iml
+*.iws
+*.ipr
+
+# ===== 前端 =====
+task-management-frontend/node_modules/
+task-management-frontend/dist/
+task-management-frontend/.vite/
+
+# ===== 通用 =====
+.vscode/
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# ===== 敏感文件（不入库） =====
+*.local
+.env
